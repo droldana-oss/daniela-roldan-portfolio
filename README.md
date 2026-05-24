@@ -45,6 +45,18 @@ El CV descargable se encuentra en `public/cv/Daniela-Roldan-CV.pdf`.
 
 ## Despliegue
 
+### GitHub Pages
+
+Este portafolio está configurado para publicarse en:
+
+```text
+https://droldana-oss.github.io/daniela-roldan-portfolio/
+```
+
+El archivo `.github/workflows/deploy.yml` compila y publica el sitio
+automáticamente con cada push a `main`. En GitHub, habilitar una vez:
+`Settings > Pages > Source > GitHub Actions`.
+
 ### Vercel
 
 1. Importar la carpeta o repositorio en Vercel.

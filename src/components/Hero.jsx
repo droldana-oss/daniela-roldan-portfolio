@@ -68,7 +68,7 @@ export function Hero() {
           <div className="portrait-frame">
             <img
               className="profile-photo"
-              src="/image/Daniela Roldan.jpeg"
+              src={`${import.meta.env.BASE_URL}image/Daniela Roldan.jpeg`}
               alt="Retrato de Daniela Roldán Arias"
             />
             <div className="portrait-copy">
