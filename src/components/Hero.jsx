@@ -31,17 +31,17 @@ export function Hero() {
         <div className="hero-copy">
           <div className="availability">
             <span />
-            Abierta a oportunidades en analítica de datos
+            Abierta a oportunidades en analítica, ingeniería y ciencia de datos
           </div>
-          <p className="hero-role">Data Analyst en formación</p>
+          <p className="hero-role">Data Analyst - Data Engineer</p>
           <h1>
             Hola, soy <span>Daniela Roldán Arias</span>
           </h1>
           <p className="hero-description">
-            Analista de Datos en formación, estudiante de Ingeniería Industrial
-            en la Universidad Nacional de Colombia. Me enfoco en transformar
-            datos en información clara y accionable mediante Python, SQL, Power
-            BI y visualización de datos.
+            Analista de Datos y estudiante de Ingeniería Industrial en la
+            Universidad Nacional de Colombia. Me enfoco en transformar datos en
+            información clara y accionable mediante Python, SQL, Power BI y
+            visualización de datos.
           </p>
           <p className="location">
             <MapPin size={17} />
@@ -85,6 +85,7 @@ export function Hero() {
           <span className="floating-chip chip-dashboard">Power BI</span>
           <span className="floating-chip chip-python">Python</span>
           <span className="floating-chip chip-story">Storytelling</span>
+          <span className="floating-chip chip-aws">AWS</span>
           <div className="portrait-frame">
             <img
               className="profile-photo"

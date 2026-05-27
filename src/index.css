@@ -224,7 +224,7 @@ p {
 }
 
 .availability {
-  @apply mb-7 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium;
+  @apply mb-7 inline-flex max-w-full items-center gap-2 rounded-full border px-4 py-2 text-sm leading-6 font-medium;
   color: #7135bf;
   border-color: #ead7ff;
   background: linear-gradient(100deg, var(--color-blue-soft), var(--color-pink-soft));
@@ -339,6 +339,13 @@ p {
   @apply right-2 -bottom-5 hidden sm:block;
   color: var(--color-pink-accent);
   animation: chip-bob 5.4s ease-in-out infinite;
+}
+
+.chip-aws {
+  @apply top-52 -right-5 hidden sm:block;
+  color: #e44c9a;
+  background: linear-gradient(105deg, #ffffff, #fff0f8);
+  animation: chip-bob 4.4s ease-in-out infinite reverse;
 }
 
 .portrait-frame {
