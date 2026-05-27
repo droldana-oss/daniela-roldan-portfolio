@@ -1,15 +1,15 @@
 export const projects = [
   {
-    title: "Análisis de Riesgo Crediticio",
-    category: "Business Intelligence",
+    title: "Dashboard De Riesgo Crediticio",
+    category: "Power BI | Business Intelligence",
     status: "Publicado",
     featured: true,
     description:
-      "Análisis exploratorio de solicitudes de crédito para comprender perfiles con mayor exposición a dificultad de pago, utilizando indicadores financieros y segmentación.",
+      "Dashboard ejecutivo de solicitudes de crédito para explorar tasa de incumplimiento, ingresos, monto del crédito y segmentos sociodemográficos con una lectura responsable.",
     tools: ["Python", "Pandas", "Power BI", "DAX"],
-    metric: "Home Credit Default Risk",
-    image: `${import.meta.env.BASE_URL}projects/credit-risk-segments.png`,
-    imageAlt: "Tasas de dificultad de pago por segmento financiero",
+    metric: "307.511 clientes | 8,07% incumplimiento",
+    image: `${import.meta.env.BASE_URL}projects/credit-risk-dashboard.png`,
+    imageAlt: "Dashboard de Power BI para análisis de riesgo crediticio",
     href: "https://github.com/droldana-oss/Credit-Risk-Analytics",
   },
   {

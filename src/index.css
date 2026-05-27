@@ -6,6 +6,10 @@
   --color-navy-800: #153454;
   --color-blue-accent: #2764ea;
   --color-blue-soft: #edf4ff;
+  --color-purple-accent: #7145dc;
+  --color-purple-soft: #f1ebff;
+  --color-pink-accent: #db4a9d;
+  --color-pink-soft: #fff0f8;
   --color-line: #e4ebf4;
   --color-ink-soft: #596b83;
   --font-display: "Inter", "Segoe UI", Arial, sans-serif;
@@ -31,6 +35,10 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  background:
+    radial-gradient(circle at 0% 28%, rgba(219, 74, 157, 0.045), transparent 25rem),
+    radial-gradient(circle at 100% 55%, rgba(113, 69, 220, 0.05), transparent 28rem),
+    #ffffff;
 }
 
 a {
@@ -52,7 +60,10 @@ p {
 }
 
 .soft {
-  background: #f7f9fc;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(219, 74, 157, 0.07), transparent 27%),
+    radial-gradient(circle at 90% 82%, rgba(39, 100, 234, 0.08), transparent 29%),
+    #f8f7ff;
 }
 
 .eyebrow {
@@ -82,7 +93,7 @@ p {
 .site-header {
   @apply sticky top-0 z-30 border-b backdrop-blur-xl;
   border-color: rgba(228, 235, 244, 0.86);
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 253, 255, 0.9);
 }
 
 .navbar {
@@ -95,7 +106,8 @@ p {
 
 .brand > span {
   @apply grid h-10 w-10 place-items-center rounded-xl text-sm font-bold text-white;
-  background: var(--color-navy-900);
+  background: linear-gradient(135deg, var(--color-blue-accent), var(--color-purple-accent) 55%, var(--color-pink-accent));
+  box-shadow: 0 8px 22px rgba(113, 69, 220, 0.25);
 }
 
 .brand small {
@@ -118,7 +130,8 @@ p {
 
 .nav-action {
   @apply rounded-full px-5 py-2.5 font-semibold text-white transition-all hover:-translate-y-px;
-  background: var(--color-navy-900);
+  background: linear-gradient(110deg, var(--color-blue-accent), var(--color-purple-accent), var(--color-pink-accent));
+  box-shadow: 0 10px 22px rgba(113, 69, 220, 0.18);
 }
 
 .menu-toggle {
@@ -140,8 +153,10 @@ p {
 .hero {
   @apply relative overflow-hidden py-16 sm:py-24 lg:py-28;
   background:
-    radial-gradient(circle at 78% 12%, rgba(39, 100, 234, 0.13), transparent 32%),
-    linear-gradient(180deg, #fbfcff 0%, #ffffff 82%);
+    radial-gradient(circle at 83% 12%, rgba(39, 100, 234, 0.16), transparent 31%),
+    radial-gradient(circle at 72% 68%, rgba(113, 69, 220, 0.12), transparent 25%),
+    radial-gradient(circle at 14% 8%, rgba(219, 74, 157, 0.09), transparent 27%),
+    linear-gradient(180deg, #fdfbff 0%, #ffffff 82%);
 }
 
 .hero::before {
@@ -151,6 +166,14 @@ p {
     linear-gradient(90deg, #dbe6f6 1px, transparent 1px);
   background-size: 42px 42px;
   mask-image: radial-gradient(ellipse, black 24%, transparent 72%);
+}
+
+.hero::after {
+  content: "";
+  @apply absolute -right-24 bottom-16 h-64 w-64 rounded-full;
+  background: linear-gradient(135deg, rgba(39, 100, 234, 0.18), rgba(219, 74, 157, 0.16));
+  filter: blur(56px);
+  animation: float-glow 8s ease-in-out infinite alternate;
 }
 
 .hero-grid {
@@ -181,7 +204,10 @@ p {
 
 .hero-copy h1 span {
   @apply block;
-  color: var(--color-blue-accent);
+  color: transparent;
+  background: linear-gradient(100deg, var(--color-blue-accent), var(--color-purple-accent) 48%, var(--color-pink-accent));
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
 .hero-description {
@@ -208,8 +234,8 @@ p {
 
 .button.primary {
   @apply text-white;
-  background: var(--color-blue-accent);
-  box-shadow: 0 14px 28px rgba(39, 100, 234, 0.2);
+  background: linear-gradient(105deg, var(--color-blue-accent), var(--color-purple-accent) 60%, var(--color-pink-accent));
+  box-shadow: 0 14px 28px rgba(113, 69, 220, 0.25);
 }
 
 .button.secondary,
@@ -217,6 +243,12 @@ p {
   @apply border bg-white;
   border-color: var(--color-line);
   color: var(--color-navy-900);
+}
+
+.button.secondary:hover,
+.button.icon:hover {
+  border-color: #ddcef8;
+  background: var(--color-purple-soft);
 }
 
 .button.icon {
@@ -229,8 +261,9 @@ p {
 
 .analytics-card {
   @apply rounded-[2rem] border bg-white p-6 sm:p-8;
-  border-color: var(--color-line);
-  box-shadow: 0 28px 70px rgba(7, 20, 38, 0.1);
+  border-color: #eadffd;
+  background: linear-gradient(150deg, #ffffff 42%, #f8f3ff 75%, #fff1f8);
+  box-shadow: 0 28px 70px rgba(71, 42, 135, 0.13);
 }
 
 .portrait-frame {
@@ -240,7 +273,7 @@ p {
 .profile-photo {
   @apply h-52 w-52 rounded-full border-[6px] border-white object-cover sm:h-60 sm:w-60;
   object-position: center 25%;
-  box-shadow: 0 0 0 1px #dfe8f5, 0 18px 38px rgba(12, 32, 58, 0.14);
+  box-shadow: 0 0 0 2px #e1d2ff, 0 0 0 8px #faf5ff, 0 18px 38px rgba(71, 42, 135, 0.16);
 }
 
 .portrait-copy {
@@ -265,7 +298,7 @@ p {
 .analytics-summary {
   @apply rounded-2xl border p-5 sm:p-6;
   border-color: var(--color-line);
-  background: #fbfcff;
+  background: rgba(255, 255, 255, 0.74);
 }
 
 .card-top {
@@ -312,7 +345,7 @@ p {
 .stack-line span {
   @apply rounded-full px-3 py-1.5 text-xs font-semibold;
   color: #34516e;
-  background: #eff4fa;
+  background: linear-gradient(100deg, var(--color-blue-soft), var(--color-purple-soft));
 }
 
 /* About and skills */
@@ -333,13 +366,24 @@ p {
 .strength-card:hover,
 .skill-card:hover {
   @apply -translate-y-1;
-  box-shadow: 0 16px 32px rgba(16, 37, 61, 0.07);
+  border-color: #e2d6fa;
+  box-shadow: 0 16px 32px rgba(89, 56, 153, 0.1);
 }
 
 .strength-card svg,
 .skill-icon {
   @apply mb-5;
   color: var(--color-blue-accent);
+}
+
+.strength-card:nth-child(2n) svg,
+.skill-card:nth-child(2n) .skill-icon {
+  color: var(--color-purple-accent);
+}
+
+.strength-card:nth-child(3n) svg,
+.skill-card:nth-child(3n) .skill-icon {
+  color: var(--color-pink-accent);
 }
 
 .strength-card h3,
@@ -368,7 +412,7 @@ p {
 .pill-list span {
   @apply rounded-lg px-2.5 py-1.5 text-xs font-medium;
   color: #38516d;
-  background: #f0f4f9;
+  background: linear-gradient(95deg, #f0f5ff, #f5efff);
 }
 
 /* Projects */
@@ -384,12 +428,12 @@ p {
 
 .project-card:hover {
   @apply -translate-y-1;
-  border-color: #c8daf8;
-  box-shadow: 0 16px 42px rgba(18, 41, 69, 0.07);
+  border-color: #dcccf8;
+  box-shadow: 0 18px 44px rgba(91, 53, 163, 0.12);
 }
 
 .project-card.featured {
-  background: linear-gradient(145deg, #ffffff 45%, #f4f8ff 100%);
+  background: linear-gradient(145deg, #ffffff 38%, #f5f4ff 70%, #fff2f9 100%);
 }
 
 .project-head {
@@ -400,6 +444,16 @@ p {
   @apply grid h-12 w-12 place-items-center rounded-xl;
   color: var(--color-blue-accent);
   background: var(--color-blue-soft);
+}
+
+.project-card:nth-child(2) .folder-icon {
+  color: var(--color-purple-accent);
+  background: var(--color-purple-soft);
+}
+
+.project-card:nth-child(3) .folder-icon {
+  color: var(--color-pink-accent);
+  background: var(--color-pink-soft);
 }
 
 .project-status {
@@ -431,7 +485,8 @@ p {
 }
 
 .project-image {
-  @apply mt-6 h-32 w-full rounded-xl border object-cover object-left sm:h-36;
+  @apply mt-6 h-auto w-full rounded-xl border object-contain;
+  aspect-ratio: 16 / 9;
   border-color: var(--color-line);
   background: #f7f9fc;
 }
@@ -462,7 +517,10 @@ p {
 
 /* Professional path */
 .navy {
-  background: var(--color-navy-950);
+  background:
+    radial-gradient(circle at 12% 22%, rgba(219, 74, 157, 0.23), transparent 25%),
+    radial-gradient(circle at 84% 76%, rgba(39, 100, 234, 0.25), transparent 31%),
+    linear-gradient(120deg, #071426, #16123d 56%, #311344);
   color: #f8fbff;
 }
 
@@ -486,6 +544,13 @@ p {
   @apply relative rounded-2xl border p-6;
   border-color: rgba(173, 194, 220, 0.15);
   background: rgba(255, 255, 255, 0.04);
+  transition: background 180ms ease, transform 180ms ease, border-color 180ms ease;
+}
+
+.path-item:hover {
+  @apply -translate-y-1;
+  border-color: rgba(222, 183, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .path-item > span {
@@ -538,11 +603,26 @@ p {
 .certificate {
   @apply flex gap-4 rounded-2xl border bg-white p-5;
   border-color: var(--color-line);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.certificate:hover {
+  @apply -translate-y-1;
+  border-color: #e0d1fb;
+  box-shadow: 0 14px 30px rgba(91, 53, 163, 0.09);
 }
 
 .certificate svg {
   @apply mt-1 shrink-0;
   color: var(--color-blue-accent);
+}
+
+.certificate:nth-child(2n) svg {
+  color: var(--color-purple-accent);
+}
+
+.certificate:nth-child(3n) svg {
+  color: var(--color-pink-accent);
 }
 
 .certificate span {
@@ -566,7 +646,11 @@ p {
 
 .contact-card {
   @apply rounded-[2rem] px-6 py-14 text-center sm:px-12;
-  background: #f4f8ff;
+  border: 1px solid #ebddfb;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(219, 74, 157, 0.12), transparent 32%),
+    radial-gradient(circle at 95% 100%, rgba(39, 100, 234, 0.13), transparent 35%),
+    linear-gradient(115deg, #f4f8ff, #faf3ff 52%, #fff2f8);
 }
 
 .contact-card h2 {
@@ -590,6 +674,25 @@ p {
 .footer-inner {
   @apply flex flex-col justify-between gap-2 text-sm sm:flex-row;
   color: #60748d;
+}
+
+@keyframes float-glow {
+  from {
+    transform: translate3d(0, -8px, 0) scale(0.96);
+  }
+  to {
+    transform: translate3d(-28px, 18px, 0) scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 @media (max-width: 420px) {
