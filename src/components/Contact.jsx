@@ -5,7 +5,7 @@ import { profile } from "../data/profile";
 export function Contact() {
   return (
     <section className="section contact" id="contacto">
-      <div className="container contact-card">
+      <div className="container contact-card vivid-card">
         <p className="eyebrow">Contacto</p>
         <h2>Conversemos sobre datos y oportunidades</h2>
         <p>

@@ -15,9 +15,18 @@ const indicators = [
   { label: "Interés técnico", value: "Data Engineering" },
 ];
 
+const portfolioStats = [
+  { value: "4", label: "proyectos publicados" },
+  { value: "3", label: "dashboards Power BI" },
+  { value: "ML", label: "modelo de fraude" },
+];
+
 export function Hero() {
   return (
     <section className="hero" id="inicio">
+      <div className="hero-orb orb-blue" aria-hidden="true" />
+      <div className="hero-orb orb-purple" aria-hidden="true" />
+      <div className="hero-orb orb-pink" aria-hidden="true" />
       <div className="container hero-grid">
         <div className="hero-copy">
           <div className="availability">
@@ -62,9 +71,20 @@ export function Hero() {
               GitHub
             </ButtonLink>
           </div>
+          <div className="portfolio-stats" aria-label="Resumen de portafolio">
+            {portfolioStats.map((stat) => (
+              <div key={stat.label}>
+                <strong>{stat.value}</strong>
+                <span>{stat.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="analytics-card" aria-label="Resumen profesional">
+          <span className="floating-chip chip-dashboard">Power BI</span>
+          <span className="floating-chip chip-python">Python</span>
+          <span className="floating-chip chip-story">Storytelling</span>
           <div className="portrait-frame">
             <img
               className="profile-photo"

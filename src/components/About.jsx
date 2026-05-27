@@ -26,7 +26,7 @@ const strengths = [
 
 export function About() {
   return (
-    <section className="section" id="sobre-mi">
+    <section className="section colorful-section" id="sobre-mi">
       <div className="container about-grid">
         <SectionHeading
           eyebrow="Sobre mí"
