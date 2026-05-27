@@ -9,7 +9,7 @@ export function Projects() {
         <SectionHeading
           eyebrow="Portafolio"
           title="Proyectos seleccionados"
-          description="Dashboards y análisis publicados que conectan datos, visualización y preguntas de negocio, junto con los proyectos que sigo desarrollando."
+          description="Dashboards y análisis publicados que conectan datos, visualización y preguntas de negocio a través de Power BI, Python y machine learning."
         />
         <div className="projects-grid">
           {projects.map((project) => (

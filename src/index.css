@@ -416,14 +416,37 @@ p {
 }
 
 /* Projects */
+#proyectos {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 0% 16%, rgba(39, 100, 234, 0.11), transparent 28%),
+    radial-gradient(circle at 100% 42%, rgba(219, 74, 157, 0.12), transparent 30%),
+    radial-gradient(circle at 45% 100%, rgba(113, 69, 220, 0.1), transparent 30%);
+}
+
+#proyectos::before {
+  content: "";
+  @apply absolute -top-16 left-1/2 h-32 w-[min(720px,80vw)] -translate-x-1/2 rounded-full;
+  background: linear-gradient(90deg, rgba(39, 100, 234, 0.12), rgba(113, 69, 220, 0.14), rgba(219, 74, 157, 0.12));
+  filter: blur(40px);
+}
+
 .projects-grid {
   @apply mt-12 grid gap-5 md:grid-cols-2;
+  position: relative;
 }
 
 .project-card {
-  @apply flex flex-col rounded-3xl border bg-white p-6 sm:p-7;
+  @apply relative flex flex-col overflow-hidden rounded-3xl border bg-white p-6 sm:p-7;
   border-color: var(--color-line);
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.project-card::before {
+  content: "";
+  @apply absolute top-0 right-0 left-0 h-1;
+  background: linear-gradient(90deg, var(--color-blue-accent), var(--color-purple-accent), var(--color-pink-accent));
 }
 
 .project-card:hover {
@@ -434,6 +457,18 @@ p {
 
 .project-card.featured {
   background: linear-gradient(145deg, #ffffff 38%, #f5f4ff 70%, #fff2f9 100%);
+}
+
+.project-card:nth-child(2) {
+  background: linear-gradient(145deg, #ffffff 38%, #eff5ff 72%, #f2ebff 100%);
+}
+
+.project-card:nth-child(3) {
+  background: linear-gradient(145deg, #ffffff 35%, #fff1f8 70%, #f5ecff 100%);
+}
+
+.project-card:nth-child(4) {
+  background: linear-gradient(145deg, #ffffff 35%, #f0f5ff 62%, #ffeef7 100%);
 }
 
 .project-head {
@@ -456,13 +491,18 @@ p {
   background: var(--color-pink-soft);
 }
 
+.project-card:nth-child(4) .folder-icon {
+  color: #c43fa1;
+  background: linear-gradient(120deg, var(--color-blue-soft), var(--color-pink-soft));
+}
+
 .project-status {
   @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold;
 }
 
 .project-status.live {
-  color: #08764e;
-  background: #ebfaf4;
+  color: #5d2cb8;
+  background: linear-gradient(95deg, #edf4ff, #f3eaff, #ffeef8);
 }
 
 .project-status.pending {
@@ -489,6 +529,7 @@ p {
   aspect-ratio: 16 / 9;
   border-color: var(--color-line);
   background: #f7f9fc;
+  box-shadow: 0 10px 26px rgba(72, 43, 138, 0.09);
 }
 
 .project-metric {
@@ -504,11 +545,18 @@ p {
   @apply rounded-full border px-3 py-1.5 text-xs font-medium;
   border-color: #dce6f4;
   color: #48617e;
+  background: rgba(255, 255, 255, 0.65);
 }
 
 .project-link {
   @apply inline-flex items-center gap-1.5 text-sm font-semibold;
-  color: var(--color-blue-accent);
+  color: var(--color-purple-accent);
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.project-link:hover {
+  color: var(--color-pink-accent);
+  transform: translateX(3px);
 }
 
 .project-link.muted {

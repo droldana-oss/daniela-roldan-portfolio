@@ -37,9 +37,8 @@ La versión lista para publicar se genera en `dist/`.
 - `src/data/certifications.js`: formación complementaria.
 - `src/data/profile.js`: GitHub, CV y campos de contacto.
 
-El perfil de GitHub, LinkedIn, el correo de contacto y los dos repositorios
-actualmente publicados están configurados en `src/data/profile.js` y
-`src/data/projects.js`.
+El perfil de GitHub, LinkedIn, el correo de contacto y los cuatro repositorios
+publicados están configurados en `src/data/profile.js` y `src/data/projects.js`.
 
 El CV descargable se encuentra en `public/cv/Daniela-Roldan-CV.pdf`.
 
