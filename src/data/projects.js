@@ -57,7 +57,7 @@ export const projects = [
     status: "Publicado",
     featured: true,
     description:
-      "Caso de producto para analizar el recorrido de usuarios de StyleMatch, identificar oportunidades de conversión y retención, y complementar la solución con una API REST para gestionar prendas y outfits favoritos.",
+      "¿Por qué una persona genera un outfit, pero no lo guarda? Este proyecto convierte esa pregunta en decisiones: muestra dónde se pierden usuarios, qué métricas seguir y qué acciones probar para mejorar la conversión y la retención. Además, incluye una API funcional para gestionar prendas y outfits favoritos.",
     tools: ["Python", "Pandas", "FastAPI", "SQLite", "Power BI"],
     metric: "50 mil usuarios | 25,32% conversión total",
     images: [
