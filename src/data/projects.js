@@ -51,4 +51,27 @@ export const projects = [
     imageAlt: "Dashboard de ventas y éxito comercial de videojuegos",
     href: "https://github.com/droldana-oss/Video-Game-Analytics-Dashboard",
   },
+  {
+    title: "StyleMatch: Product Analytics & API",
+    category: "Product Analytics | Backend API",
+    status: "Publicado",
+    featured: true,
+    description:
+      "Caso de producto para analizar el recorrido de usuarios de StyleMatch, identificar oportunidades de conversión y retención, y complementar la solución con una API REST para gestionar prendas y outfits favoritos.",
+    tools: ["Python", "Pandas", "FastAPI", "SQLite", "Power BI"],
+    metric: "50 mil usuarios | 25,32% conversión total",
+    images: [
+      {
+        src: `${import.meta.env.BASE_URL}projects/product-analytics-dashboard.jpeg`,
+        alt: "Dashboard de Power BI con métricas de producto de StyleMatch",
+        label: "Dashboard de analítica de producto",
+      },
+      {
+        src: `${import.meta.env.BASE_URL}projects/product-analytics-api.png`,
+        alt: "Documentación Swagger de la API REST de StyleMatch",
+        label: "API REST documentada con Swagger",
+      },
+    ],
+    href: "https://github.com/droldana-oss/product-analytics-api",
+  },
 ];
