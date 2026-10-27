@@ -5,6 +5,8 @@ import {
   ArrowUpRight,
   Clock3,
   FolderKanban,
+  Pause,
+  Play,
 } from "lucide-react";
 import { projects } from "../data/projects";
 import { SectionHeading } from "./SectionHeading";
@@ -17,17 +19,22 @@ function ProjectMedia({ project }) {
     },
   ];
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isInteracting, setIsInteracting] = useState(false);
   const hasMultipleImages = media.length > 1;
 
   useEffect(() => {
-    if (!hasMultipleImages) return undefined;
+    if (
+      !hasMultipleImages || isPaused || isInteracting ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) return undefined;
 
     const intervalId = window.setInterval(() => {
       setActiveIndex((currentIndex) => (currentIndex + 1) % media.length);
     }, 4500);
 
     return () => window.clearInterval(intervalId);
-  }, [hasMultipleImages, media.length]);
+  }, [hasMultipleImages, media.length, isPaused, isInteracting]);
 
   const showPrevious = () => {
     setActiveIndex((currentIndex) =>
@@ -40,12 +47,28 @@ function ProjectMedia({ project }) {
   };
 
   return (
+    <figure className="project-gallery">
     <div
       className="project-carousel"
+      onMouseEnter={() => setIsInteracting(true)}
+      onMouseLeave={() => setIsInteracting(false)}
+      onFocus={() => setIsInteracting(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setIsInteracting(false);
+      }}
+      onKeyDown={(event) => {
+        if (!hasMultipleImages) return;
+        if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+          event.preventDefault();
+          if (event.key === "ArrowLeft") showPrevious();
+          else showNext();
+        }
+      }}
       aria-label={`Galería del proyecto ${project.title}`}
       aria-roledescription="carrusel"
     >
       <img
+        key={media[activeIndex].src}
         className="project-image"
         src={media[activeIndex].src}
         alt={media[activeIndex].alt}
@@ -53,6 +76,15 @@ function ProjectMedia({ project }) {
       />
       {hasMultipleImages && (
         <>
+          <button
+            className="carousel-playback"
+            type="button"
+            onClick={() => setIsPaused((paused) => !paused)}
+            aria-label={isPaused ? "Reanudar carrusel" : "Pausar carrusel"}
+            aria-pressed={isPaused}
+          >
+            {isPaused ? <Play size={14} aria-hidden="true" /> : <Pause size={14} aria-hidden="true" />}
+          </button>
           <button
             className="carousel-control carousel-control-previous"
             type="button"
@@ -81,12 +113,19 @@ function ProjectMedia({ project }) {
               />
             ))}
           </div>
-          <p className="sr-only" aria-live="polite">
+          <p className="sr-only" aria-live={isPaused || isInteracting ? "polite" : "off"}>
             Imagen {activeIndex + 1} de {media.length}: {media[activeIndex].label}
           </p>
         </>
       )}
     </div>
+    {hasMultipleImages && (
+      <figcaption className="project-gallery-caption">
+        <span>{media[activeIndex].label}</span>
+        <span>{activeIndex + 1} / {media.length}</span>
+      </figcaption>
+    )}
+    </figure>
   );
 }
 
@@ -97,7 +136,7 @@ export function Projects() {
         <SectionHeading
           eyebrow="Portafolio"
           title="Proyectos seleccionados"
-          description="Dashboards y análisis publicados que conectan datos, visualización y preguntas de negocio a través de Power BI, Python y machine learning."
+          description="Proyectos de análisis de datos y desarrollo web que conectan visualización, preguntas de negocio y aplicaciones con Power BI, Python y JavaScript."
         />
         <div className="projects-grid">
           {projects.map((project) => (

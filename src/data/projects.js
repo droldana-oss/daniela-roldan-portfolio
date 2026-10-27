@@ -21,8 +21,23 @@ export const projects = [
       "Análisis y modelo de clasificación sobre transacciones PaySim para detectar patrones de fraude y priorizar operaciones sospechosas.",
     tools: ["Python", "Pandas", "Scikit-learn", "Power BI"],
     metric: "Random Forest | PaySim",
-    image: `${import.meta.env.BASE_URL}projects/fraud-model-evaluation.png`,
-    imageAlt: "Evaluación del modelo Random Forest para detección de fraude",
+    images: [
+      {
+        src: `${import.meta.env.BASE_URL}projects/fraude1.jpeg`,
+        alt: "Dashboard de Power BI con indicadores e impacto económico del fraude en PaySim",
+        label: "Resumen del fraude financiero",
+      },
+      {
+        src: `${import.meta.env.BASE_URL}projects/fraude2.jpeg`,
+        alt: "Dashboard de patrones de fraude por tipo de transacción y rango de monto",
+        label: "Patrones y señales de riesgo",
+      },
+      {
+        src: `${import.meta.env.BASE_URL}projects/fraude3.jpeg`,
+        alt: "Dashboard de evaluación de Random Forest con métricas y matriz de confusión",
+        label: "Evaluación del modelo de IA",
+      },
+    ],
     href: "https://github.com/droldana-oss/PaySim-Fraud-Analytics-Qualifying-Model",
   },
   {
@@ -73,5 +88,38 @@ export const projects = [
       },
     ],
     href: "https://github.com/droldana-oss/product-analytics-api",
+  },
+  {
+    title: "GestiCost: Gestión de Finanzas Personales",
+    category: "Desarrollo Web | Finanzas Personales",
+    status: "Publicado",
+    featured: true,
+    description:
+      "Aplicación web para registrar y organizar gastos por categoría y método de pago, consultar informes y hacer seguimiento a metas de ahorro. Desarrollada con Node.js, Express y Handlebars, con autenticación de Google y almacenamiento en Firebase; incluye una demo local con datos de ejemplo.",
+    tools: ["JavaScript", "Node.js", "Express", "Handlebars", "Firebase"],
+    metric: "Control de gastos | Informes | Metas de ahorro",
+    images: [
+      {
+        src: `${import.meta.env.BASE_URL}projects/gesticost1.png`,
+        alt: "Panel de GestiCost con transacciones, categorías y filtros de gastos",
+        label: "Panel de transacciones",
+      },
+      {
+        src: `${import.meta.env.BASE_URL}projects/gesticost2.png`,
+        alt: "Formulario de GestiCost para registrar una transacción",
+        label: "Registro de gastos",
+      },
+      {
+        src: `${import.meta.env.BASE_URL}projects/gesticost3.png`,
+        alt: "Informe de gastos de GestiCost con total y resumen de transacciones",
+        label: "Informe de gastos",
+      },
+      {
+        src: `${import.meta.env.BASE_URL}projects/gesticost4.png`,
+        alt: "Panel de GestiCost con metas de ahorro y montos acumulados",
+        label: "Metas de ahorro",
+      },
+    ],
+    href: "https://github.com/droldana-oss/GestiCost",
   },
 ];
